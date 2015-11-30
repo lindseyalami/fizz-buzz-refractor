@@ -4,12 +4,16 @@ $(document).ready(function() {
   $("form").on("submit", function (e) {
     
     e.preventDefault();
-
     var entry = $(".entry").val(); //___captures form data
 
-    entry = parseInt(entry, 10); //___parses string and returns integer
+    if (entry % 1 === 0 && entry >= 1 && entry<= 100) { //__checks if entry is integer and in range
+      fizzbuzz(entry); //__run fizzbuzz function
+    } 
 
-    fizzbuzz(entry); //__run fizzbuzz function
+    else {
+      alert("Please enter an integer between 1 and 100"); //__adds alert
+      $('.entry').val(""); //___empties text box
+    }
 
   });
 
